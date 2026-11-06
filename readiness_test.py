@@ -1,6 +1,6 @@
 """Python Readiness Test
 
-Complete each function below so that it does what its description says.
+Complete the 4 functions below so that each does what its description says.
 Replace the line `raise NotImplementedError` with your own code.
 
 - Use only plain Python: no pandas, no other packages.
@@ -25,33 +25,7 @@ def classify_amount(amount):
     raise NotImplementedError
 
 
-# Task 2: functions with default values
-def monthly_fee(balance, rate=0.01, minimum=2.0):
-    """Return the monthly account fee.
-
-    The fee is balance * rate, but never less than minimum.
-    Round the result to 2 decimal places.
-
-    monthly_fee(5000)               -> 50.0
-    monthly_fee(100)                -> 2.0    (1.0 is below the minimum)
-    monthly_fee(5000, rate=0.005)   -> 25.0
-    """
-    raise NotImplementedError
-
-
-# Task 3: loops that stop early
-def first_over_limit(amounts, limit):
-    """Return the position (index) of the first amount greater than limit.
-
-    Stop looking as soon as you find one. Return -1 if no amount is over the limit.
-
-    first_over_limit([200, 450, 9000, 300, 12000], 5000)  -> 2
-    first_over_limit([200, 450], 5000)                    -> -1
-    """
-    raise NotImplementedError
-
-
-# Task 4: tuples and dictionaries
+# Task 2: loops, tuples and dictionaries
 def total_by_type(transactions):
     """Add up amounts by transaction type.
 
@@ -65,56 +39,33 @@ def total_by_type(transactions):
     raise NotImplementedError
 
 
-# Task 5: sets
-def branches_in_common(branches_a, branches_b):
-    """Return the branches that appear in BOTH lists, as a sorted list with no repeats.
-
-    branches_in_common(["Orchard", "Jurong", "Orchard"], ["Jurong", "Tampines", "Orchard"])
-        -> ["Jurong", "Orchard"]
-    """
-    raise NotImplementedError
-
-
-# Task 6: handling errors (try / except)
+# Task 3: handling errors (try / except)
 def parse_amount(text):
-    """Turn text such as "1,250.50" into a float. Return None if it is not a number.
+    """Turn text such as "1,250.50" into a float.
 
-    - Remove commas and spaces at either end before converting.
-    - Do not let the program crash on bad input: catch the error instead.
+    Return None if it is not a number.
+
+    - Remove commas, and spaces at either end, before converting.
+    - Don't let the program crash on bad input: catch the error instead.
 
     parse_amount("1,250.50")  -> 1250.5
     parse_amount(" 300 ")     -> 300.0
     parse_amount("n/a")       -> None
-    parse_amount("")          -> None
     """
     raise NotImplementedError
 
 
-# Task 7: reading a file
+# Task 4: reading a file
 def read_amounts(path):
-    """Read a text file with one amount per line and return the valid amounts as a list of floats.
+    """Read a text file with one amount per line.
 
-    Skip lines that are blank or are not numbers. Use parse_amount from Task 6.
+    Return the valid amounts as a list of floats.
+
+    Skip lines that are blank or are not numbers: use parse_amount from
+    Task 3.
     Open the file with a `with` block.
 
-    For a file containing the lines  "100", "1,200.50", "", "unknown", "75"
+    For a file containing the lines "100", "1,200.50", "", "unknown", "75":
         read_amounts(path) -> [100.0, 1200.5, 75.0]
-    """
-    raise NotImplementedError
-
-
-# Task 8: writing a file
-def write_summary(path, totals):
-    """Write totals (a dictionary of type -> total) to a text file, one line per type.
-
-    - Each line looks like:  card: 200.00
-    - Lines are in alphabetical order of type.
-    - Totals always show 2 decimal places.
-    - Open the file with a `with` block.
-
-    write_summary("summary.txt", {"transfer": 500, "card": 200})
-    creates summary.txt containing:
-        card: 200.00
-        transfer: 500.00
     """
     raise NotImplementedError

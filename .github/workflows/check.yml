@@ -1,0 +1,16 @@
+name: Readiness checks
+on: [push, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  pytest:
+    # Skip on the template repository itself, where every task is still a stub.
+    if: ${{ !github.event.repository.is_template }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: pytest -v
